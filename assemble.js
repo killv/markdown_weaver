@@ -66,7 +66,7 @@ function assembleProject() {
 }
 
 function shouldIgnoreFile(file) {
-    return config.ignorePatterns.some(pattern => file.includes(pattern));
+    return config.ignorePatterns.some(pattern => new RegExp(pattern).test(file));
 }
 
 module.exports = assembleProject;
