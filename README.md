@@ -16,18 +16,11 @@
 To assemble a project, run the following command:
 
 ```bash
-node index.js --action assemble --projectDir ./project --outputDir ./output --lineLengthLimit 800 --ignorePatterns .git,output
-```
-
-### Disassemble Project
-To disassemble a project, run the following command:
-
-```bash
-node index.js --action disassemble --projectDir ./project --outputDir ./output
+node index.js
 ```
 
 ## Configuration File
-You can also use a configuration file (config.yaml) to set up your project and run with:
+You can also use a configuration file (config.js) to set up your project and run with:
 
 ```bash
 node index.js
