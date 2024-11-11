@@ -5,7 +5,7 @@ const path = require('path');
 const config = require('./config');
 
 function assembleProject() {
-    console.log('Начинаем сборку проекта...');
+    console.log('Start assemble...');
 
     const outputDir = path.join(config.outputDir, 'assemble');
     const outputFilePath = path.join(outputDir, 'project.md');
@@ -27,7 +27,12 @@ function assembleProject() {
             const relativePath = path.relative(config.projectDir, filePath);
 
             if (shouldIgnoreFile(relativePath)) {
-                console.log(`Игнорируем файл: ${relativePath}`);
+                if (fs.statSync(relativePath).isDirectory()) {
+                    console.log(`Ignore dir  : ${relativePath}`);
+                } else {
+                    console.log(`Ignore file : ${relativePath}`);
+                }
+
                 return;
             }
 
@@ -57,7 +62,7 @@ function assembleProject() {
 
     fs.writeFileSync(outputFilePath, content);
 
-    console.log(`Проект успешно собран. Результат сохранен в ${outputFilePath}`);
+    console.log(`Project assembled successfully and saved in: ${outputFilePath}`);
 }
 
 function shouldIgnoreFile(file) {
