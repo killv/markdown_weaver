@@ -79,7 +79,7 @@ function saveToFile(content, outputFilePath) {
 
 // Пример использования:
 const projectDir = './';
-const ignorePatterns = ['.DS_Store', '.git', 'node_modules', 'project.md'];
+const ignorePatterns = ['.DS_Store', '.git', 'node_modules', 'project.md', 'markdown_weaver.js'];
 const filesInfo = collectFilesInfo(projectDir, ignorePatterns);
 console.log('Files Info:', filesInfo);
 
